@@ -1,11 +1,37 @@
-export default function AboutPage() {
+import { useEffect, useState } from "react";
+import PostCard from "../components/PostCard";
+
+const URL = import.meta.env.VITE_SUPABASE_URL + "daily-chores";
+const headers = {
+  apikey: import.meta.env.VITE_SUPABASE_APIKEY,
+  "Content-Type": "application/json",
+};
+
+export default function PostsPage() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    async function getPosts() {
+      const response = await fetch(URL, { headers });
+      const data = await response.json();
+      console.log(data);
+      setPosts(data);
+    }
+
+    getPosts();
+  }, []);
+
   return (
     <>
       <header>
-        <h1>About</h1>
+        <h1>Daglige pligter</h1>
       </header>
       <main>
-        <p>This is the about page.</p>
+        <section className="posts-grid" aria-label="Supabase posts">
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+        </section>
       </main>
     </>
   );
