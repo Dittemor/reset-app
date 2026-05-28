@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  background: #f4f1ed;
+  font-family: Arial, sans-serif;
+}
+
+.home {
+  padding: 16px;
+  padding-bottom: 120px;
+}
+
+.card {
+  background: #ebe6df;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.hero-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.house-image {
+  width: 200px;
+}
+
+h1 {
+  color: #486791;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 12px;
+  background: #d8d8d8;
+  border-radius: 20px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.progress {
+  width: 70%;
+  height: 100%;
+  background: #486791;
+  border-radius: 20px;
+}
+
+.overview {
+  font-weight: bold;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task {
+  background: #f7f4f0;
+  border-radius: 20px;
+  padding: 16px;
+  margin-top: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task button {
+  border: none;
+  background: #ece7df;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.admin-btn {
+  margin-top: 20px;
+  width: 100%;
+  border: none;
+  padding: 16px;
+  border-radius: 30px;
+  background: #486791;
+  color: white;
+  font-size: 16px;
+}
+
+.goal-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.large {
+  flex: 1;
+}
+
+.percent {
+  font-size: 28px;
+  color: #486791;
+  font-weight: bold;
+}
+
+.reset {
+  margin-top: 15px;
+  text-decoration: underline;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 500px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #cfc7c7;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.plus-btn {
+  width: 70px;
+  height: 70px;
+  background: #486791;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 40px;
+
+  margin-top: -30px;
+}

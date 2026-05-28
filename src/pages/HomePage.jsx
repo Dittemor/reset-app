@@ -1,38 +1,81 @@
-import reactRouterLogo from "../assets/example.svg";
-
-const publicLogoUrl = `${import.meta.env.BASE_URL}logo.webp`;
+import "./HomePage.css";
 
 export default function HomePage() {
   return (
-    <>
-      <header>
-        <h1>Home</h1>
-      </header>
-      <main>
-        <p>Welcome to the home page...</p>
+    <div className="home">
+      
 
-        <article>
-          <h2>Displaying images in React</h2>
+      {/* Top card */}
+      <section className="card hero-card">
+        <div className="hero-content">
+          <img
+            src="images/hus.png" 
+            alt="House"
+            className="house-image"
+          />
 
-          <h3>1. Import from src/assets</h3>
-          <p>
-            Import the image file at the top of your component. The image is bundled with your app and gets a unique
-            filename for better caching.
-          </p>
-          <img src={reactRouterLogo} alt="Example SVG" className="img-small" />
+          <div>
+            <h1>I gør det godt!</h1>
 
-          <h3>2. Public folder</h3>
-          <p>
-            Place the image in the /public folder and reference it by path. The file is served directly without any
-            processing.
-          </p>
-          <img src={publicLogoUrl} alt="Favicon from public folder" className="img-small" />
+            <p>9 opgaver klaret denne uge</p>
+            <p><strong>3 opgaver mangler i dag</strong></p>
 
-          <h3>3. External URL</h3>
-          <p>Use a full URL to load an image from the internet, just like in regular HTML.</p>
-          <img src="https://picsum.photos/200" alt="Random external image" className="img-medium" />
-        </article>
-      </main>
-    </>
+            <div className="progress-bar">
+              <div className="progress"></div>
+            </div>
+
+            <p className="overview">Se ugens overblik →</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Task section */}
+      <section className="card">
+        <div className="task-header">
+          <h2>Dagens fokus</h2>
+          <span>4 opgaver</span>
+        </div>
+
+        <div className="task">
+          <span>🍽️ Tøm opvaskemaskine</span>
+          <button>+20 pt</button>
+        </div>
+
+        <div className="task">
+          <span>👕 Vask tøj</span>
+          <button>+50 pt</button>
+        </div>
+
+        <div className="task">
+          <span>🧹 Støvsug</span>
+          <button>+60 pt</button>
+        </div>
+
+        <div className="task">
+          <span>👕 Hæng tøj op</span>
+          <button>+40 pt</button>
+        </div>
+
+        <button className="admin-btn">
+          Administrer opgaver
+        </button>
+      </section>
+
+      {/* Goal section */}
+      <section className="card">
+        <h3>Mål: Vær klar til lørdag kl 18.00</h3>
+
+        <div className="goal-row">
+          <div className="progress-bar large">
+            <div className="progress"></div>
+          </div>
+
+          <span className="percent">70%</span>
+        </div>
+
+        <p className="reset">Åben reset</p>
+      </section> 
+
+    </div>
   );
 }
