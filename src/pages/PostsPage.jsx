@@ -24,7 +24,7 @@ export default function PostsPage() {
   return (
     <>
       <header>
-        <h1>Posts</h1>
+        <h1>Belønninger</h1>
       </header>
       <main>
         <section className="posts-grid" aria-label="Supabase posts">
