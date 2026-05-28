@@ -1,6 +1,6 @@
 {
-  "name": "react-router-supabase",
-  "base": "/react-router-supabase/",
+  "name": "reset-app",
+  "base": "/reset-app/",
   "private": true,
   "version": "1.0.0",
   "type": "module",
