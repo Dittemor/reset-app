@@ -1,20 +1,24 @@
+
+
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
+import "./HomePage.css";   
 
-const URL = import.meta.env.VITE_SUPABASE_URL + "/daily-chores";
-const headers = {
-  apikey: import.meta.env.VITE_SUPABASE_APIKEY,
-  "Content-Type": "application/json",
-};
+const URL = import.meta.env.VITE_SUPABASE_URL + "daily-chores";
+const APIKEY = import.meta.env.VITE_SUPABASE_APIKEY;
 
-export default function PostsPage() {
+export default function HomePage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     async function getPosts() {
-      const response = await fetch(URL, { headers });
+      const response = await fetch(URL, {
+        headers: {
+          apikey: APIKEY,
+          "Content-Type": "application/json",
+        },
+      });
       const data = await response.json();
-      console.log(data); 
       setPosts(data);
     }
 
@@ -23,11 +27,14 @@ export default function PostsPage() {
 
   return (
     <>
-      <header>
-        <h1>Home</h1>
-      </header>
-      <main>
-        <section className="posts-grid" aria-label="Supabase posts">
+      <main className="app">
+        <section className="feed-intro">
+          <h2 className="page-title">Halløjsovs!</h2>
+          <p className="front-page-text">Velkommen tilbage!</p>
+          <p className="feed-section-one">Udforsk events i nærheden af dig!</p>
+        </section>
+
+        <section className="post-grid">
           {posts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
@@ -36,3 +43,6 @@ export default function PostsPage() {
     </>
   );
 }
+
+console.log("VITE_SUPABASE_URL:", URL);
+console.log("VITE_SUPABASE_APIKEY:", APIKEY);
