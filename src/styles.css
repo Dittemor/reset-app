@@ -16,13 +16,15 @@ body {
 nav {
   background-color: #FDFAF5;
   padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 4px 476489(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  position: sticky;
-  top: 0;
+  position: fixed;
   z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 nav a {
