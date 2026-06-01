@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
 
-const URL = import.meta.env.VITE_SUPABASE_URL + "daily-chores";
+const URL = import.meta.env.VITE_SUPABASE_URL + "chores";
 const headers = {
   apikey: import.meta.env.VITE_SUPABASE_APIKEY,
-  "Content-Type": "application/json",
+  "Content-Type": "application/json", 
 };
 
 export default function PostsPage() {
@@ -24,7 +24,7 @@ export default function PostsPage() {
   return (
     <>
       <header>
-        <h1>Daglige pligter</h1>
+        <h1>Reset</h1>
       </header>
       <main>
         <section className="posts-grid" aria-label="Supabase posts">
