@@ -29,7 +29,7 @@ export default function Page() {
         <h1>Belønninger</h1>
       </header>
       <main>
-        <section className="posts-grid" aria-label="Supabase posts">
+        <section className="posts-card" aria-label="Supabase posts">
           {posts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}

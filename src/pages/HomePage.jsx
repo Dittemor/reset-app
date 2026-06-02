@@ -23,7 +23,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="home">
+    <div className="page">
+
       {/* Top card */}
       <section className="card hero-card">
         <div className="hero-content">
@@ -33,9 +34,9 @@ export default function HomePage() {
             <h1>I gør det godt!</h1>
 
             <p>9 opgaver klaret denne uge</p>
-            <p>
+            <p1>
               <strong>3 opgaver mangler i dag</strong>
-            </p>
+            </p1>
 
             <div className="progress-bar">
               <div className="progress"></div>
@@ -56,7 +57,10 @@ export default function HomePage() {
         {dailyChores.map((chore) => (
           <div className="task" key={chore.id}>
             <span className="task-label">
-              <span className="icon-circle" style={{ backgroundColor: chore.icon_color }}>
+              <span
+                className="icon-circle"
+                style={{ backgroundColor: chore.icon_color }}
+              >
                 <Icon icon={chore.icon} width="20" height="20" color="white" />
               </span>
               {chore.title}
@@ -65,7 +69,7 @@ export default function HomePage() {
           </div>
         ))}
 
-        <button className="admin-btn">Administrer opgaver</button>
+        <button className="create-reward-btn">Administrer opgaver</button>
       </section>
 
       {/* Goal section */}
@@ -80,7 +84,7 @@ export default function HomePage() {
           <span className="percent">70%</span>
         </div>
 
-        <p className="reset">Åben reset</p>
+        <button className="reset">Åben reset</button>
       </section>
     </div>
   );

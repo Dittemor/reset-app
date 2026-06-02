@@ -28,10 +28,13 @@ export default function PostsPage() {
       </header>
       <main>
         <section className="posts-grid" aria-label="Supabase posts">
+          
           {posts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
+
         </section>
+        <button className="create-reward-btn">Tilføj medlem</button>
       </main>
     </>
   );
