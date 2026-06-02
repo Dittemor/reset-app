@@ -57,7 +57,7 @@ export default function HomePage() {
           <div className="task" key={chore.id}>
             <span className="task-label">
               <span className="icon-circle" style={{ backgroundColor: chore.icon_color }}>
-                <Icon icon={chore.icon} width="20" height="20" />
+                <Icon icon={chore.icon} width="20" height="20" color="white" />
               </span>
               {chore.title}
             </span>
