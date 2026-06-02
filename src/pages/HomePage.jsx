@@ -61,26 +61,6 @@ export default function HomePage() {
           <span>4 opgaver</span>
         </div>
 
-        <div className="task">
-          <span>🍽️ Tøm opvaskemaskine</span>
-          <button>+20 pt</button>
-        </div>
-
-        <div className="task">
-          <span>👕 Vask tøj</span>
-          <button>+50 pt</button>
-        </div>
-
-        <div className="task">
-          <span>🧹 Støvsug</span>
-          <button>+60 pt</button>
-        </div>
-
-        <div className="task">
-          <span>👕 Hæng tøj op</span>
-          <button>+40 pt</button>
-        </div>
-
         <button className="admin-btn">Administrer opgaver</button>
       </section>
 
