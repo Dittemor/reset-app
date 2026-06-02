@@ -7,19 +7,19 @@ export default function Navbar() {
         <img src="/images/house.svg"/>
       </NavLink>
 
-      <NavLink to="/about">
+      <NavLink to="/reset">
         <img src="/images/check.svg"/>
       </NavLink>
 
-      <NavLink to="/reset">
+      <NavLink to="/chores">
         <img src="/images/plus.svg"/>
       </NavLink>
 
-      <NavLink to="/posts">
+      <NavLink to="/rewards">
         <img src="/images/gift.svg"/>
       </NavLink>
 
-      <NavLink to="/contact">
+      <NavLink to="/profiles">
         <img src="/images/person.svg"/>
       </NavLink>
     </nav>
