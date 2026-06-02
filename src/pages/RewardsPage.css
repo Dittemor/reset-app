@@ -1,0 +1,100 @@
+/* Hele siden */
+body {
+  margin: 0;
+  background-color: #bfbfbf;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Siden */
+main {
+  width: 390px;
+  min-height: 844px;
+  margin: 0 auto;
+  background-color: #faf8f5;
+  padding: 20px;
+  padding-bottom: 120px;
+}
+
+/* Header */
+header {
+  width: 390px;
+  margin: 0 auto;
+  background-color: #faf8f5;
+  padding: 55px 20px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Listen med belønninger */
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  background-color: #fffdfb;
+  border: 1px solid #e4ded8;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: 35px;
+}
+
+/* Hver belønning/PostCard */
+.post-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px;
+  background-color: #fffdfb;
+  border-bottom: 1px solid #e8e2dc;
+}
+
+/* Fjerner streg på den sidste */
+.post-card:last-child {
+  border-bottom: none;
+}
+
+/* Hvis dine billeder ligger inde i PostCard */
+.post-card img {
+  width: 72px;
+  height: 68px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Tekst i kortet */
+.post-card h2,
+.post-card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.post-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Knap nederst */
+.create-reward-btn {
+  width: 82%;
+  display: block;
+  margin: 22px auto 0;
+  padding: 14px;
+
+  border: none;
+  border-radius: 999px;
+  background-color: #4f6f94;
+
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
