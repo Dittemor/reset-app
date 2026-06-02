@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./HomePage.css";
+import { Icon } from "@iconify/react"; 
 
 const URL = import.meta.env.VITE_SUPABASE_URL + "daily-chores";
 const headers = {
@@ -45,21 +46,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="task-header">
+        <h2>Dagens fokus</h2>
+        <span>4 opgaver</span>
+      </div> 
+
       {/* Task section */}
       <section className="card">
         {dailyChores.map((chore) => (
           <div className="task" key={chore.id}>
             <span>
-              {chore.icon} {chore.title}
+              <Icon icon={chore.icon} /> {chore.title}
             </span>
             <button>+{chore.points} pt</button>
           </div>
         ))}
-
-        <div className="task-header">
-          <h2>Dagens fokus</h2>
-          <span>4 opgaver</span>
-        </div>
 
         <button className="admin-btn">Administrer opgaver</button>
       </section>

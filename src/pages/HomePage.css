@@ -107,3 +107,8 @@ h1 {
   margin-top: 15px;
   text-decoration: underline;
 } 
+
+.iconify {
+  font-size: 30px;
+  margin-right: 8px;
+}
