@@ -49,14 +49,17 @@ export default function HomePage() {
       <div className="task-header">
         <h2>Dagens fokus</h2>
         <span>4 opgaver</span>
-      </div> 
+      </div>
 
       {/* Task section */}
       <section className="card">
         {dailyChores.map((chore) => (
           <div className="task" key={chore.id}>
-            <span>
-              <Icon icon={chore.icon} /> {chore.title}
+            <span className="task-label">
+              <span className="icon-circle" style={{ backgroundColor: chore.icon_color }}>
+                <Icon icon={chore.icon} width="20" height="20" />
+              </span>
+              {chore.title}
             </span>
             <button>+{chore.points} pt</button>
           </div>
