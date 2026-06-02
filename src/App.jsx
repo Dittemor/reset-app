@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import PostsPage from "./pages/PostsPage";
+import ChoresPage from "./pages/ChoresPage";
+import RewardsPage from "./pages/RewardsPage";
+import ProfilesPage from "./pages/ProfilesPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
@@ -12,9 +12,9 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/posts" element={<PostsPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/profiles" element={<ProfilesPage />} />
+        <Route path="/chores" element={<ChoresPage />} />
+        <Route path="/rewards" element={<RewardsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

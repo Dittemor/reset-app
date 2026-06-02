@@ -7,7 +7,7 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-export default function PostsPage() {
+export default function Page() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function PostsPage() {
 
     getPosts();
   }, []);
-
+        
   return (
     <>
       <header>
@@ -36,3 +36,4 @@ export default function PostsPage() {
     </>
   );
 }
+
