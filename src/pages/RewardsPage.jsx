@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
+import "./RewardsPage.css";
+
 
 const URL = import.meta.env.VITE_SUPABASE_URL + "rewards";
 const headers = {
@@ -32,6 +34,8 @@ export default function Page() {
             <PostCard key={post.id} post={post} />
           ))}
         </section>
+
+        <button className="create-reward-btn">Opret ny belønning</button>
       </main>
     </>
   );
