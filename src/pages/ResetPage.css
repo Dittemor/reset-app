@@ -1,0 +1,56 @@
+.reset-page {
+  padding: 20px;
+}
+
+.reset-page h1 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.reset-page h2 {
+  margin-bottom: 16px;
+}
+
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.reason-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border: none;
+  border-radius: 16px;
+  background: #f3efe9;
+  cursor: pointer;
+}
+
+.reason-card span {
+  text-align: center;
+}
+
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.chip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.chip {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 16px;
+  background: #f3efe9;
+  cursor: pointer;
+}
