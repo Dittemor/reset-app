@@ -13,17 +13,23 @@ const headers = {
 export default function ChoresPage() {
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function getPosts() {
       const response = await fetch(URL, { headers });
       const data = await response.json();
+
       console.log(data);
       setPosts(data);
     }
 
     getPosts();
   }, []);
+
+  const filteredPosts = posts.filter((post) =>
+    post.title?.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
     <>
@@ -32,8 +38,16 @@ export default function ChoresPage() {
       </header>
 
       <main>
-        <section className="posts-grid">
-          {posts.map((post) => (
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Søg efter opgave"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        />
+
+        <section className="posts-grid" aria-label="Pligter">
+          {filteredPosts.map((post) => (
             <PostCard
               key={post.id}
               post={post}

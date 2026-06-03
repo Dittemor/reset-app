@@ -3,6 +3,7 @@ import "./HomePage.css";
 import { Icon } from "@iconify/react"; 
 import { useNavigate } from "react-router-dom"; 
 
+
 const URL = import.meta.env.VITE_SUPABASE_URL + "daily-chores";
 const headers = {
   apikey: import.meta.env.VITE_SUPABASE_APIKEY,
@@ -58,7 +59,7 @@ async function completeChore(id) {
             <h1>I gør det godt!</h1>
 
             <p>9 opgaver klaret denne uge</p>
-            
+
             <p className>
               <strong>3 opgaver mangler i dag</strong>
             </p>
@@ -113,7 +114,7 @@ async function completeChore(id) {
                 />
               </div>
             </div>
-          ))} 
+          ))}
 
         <button className="admin-btn" onClick={() => navigate("/admin")}>
           Administrer opgaver
@@ -131,8 +132,11 @@ async function completeChore(id) {
 
           <span className="percent">70%</span>
         </div>
-
-        <button className="reset">Åben reset</button>
+        <main>
+          <button className="reset" onClick={() => navigate("/reset")}>
+            Åben reset
+          </button>
+        </main>
       </section>
     </div>
   );

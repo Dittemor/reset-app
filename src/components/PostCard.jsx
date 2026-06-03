@@ -1,7 +1,7 @@
-export default function PostCard({ post, onClick }) {
+export default function PostCard({ post, onClick = false }) {
   return (
     <article className="post-card" onClick={onClick}>
-      <img src={post.image} alt={post.name} />
+      <img src={post.image} alt={post.name || post.title} />
 
       <div className="post-info">
         <h2>{post.title}</h2>
@@ -10,16 +10,16 @@ export default function PostCard({ post, onClick }) {
         <p>
           {post.points} point{post.points !== 1 ? "s" : ""}
         </p>
+
+        {post.icon && (
+          <img
+            className="post-icon"
+            src={post.icon}
+            alt={`${post.name} icon`}
+          />
+        )}
       </div>
 
-      <button
-        onClick={(event) => {
-          event.stopPropagation();
-          onClick();
-        }}
-      >
-        Klar
-      </button>
     </article>
   );
 }

@@ -125,10 +125,14 @@ h1 {
   font-weight: bold;
 }
 
-.reset {
-  margin-top: 15px;
-  text-decoration: underline;
-} 
+.reset-page {
+  width: 390px;
+  margin: 0 auto;
+  background-color: #faf8f5;
+  padding: 40px 20px;
+  height: auto;
+  min-height: auto;
+}
 
 .icon-circle {
   width: 36px;
@@ -170,3 +174,21 @@ h1 {
 .completed { 
   opacity: 0.5;
 } 
+
+.reset {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+
+  padding: 10px 22px;
+  border: none;
+  border-radius: 999px;
+  background-color: #4f6f94;
+
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+main {
+  min-height: auto;
+}
