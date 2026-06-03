@@ -48,7 +48,8 @@ async function completeChore(id) {
    console.log(dailyChores); 
 
   return (
-    <div className="home">
+    <div className="page">
+
       {/* Top card */}
       <section className="card hero-card">
         <div className="hero-content">
@@ -58,9 +59,9 @@ async function completeChore(id) {
             <h1>I gør det godt!</h1>
 
             <p>9 opgaver klaret denne uge</p>
-            <p>
+            <p1>
               <strong>3 opgaver mangler i dag</strong>
-            </p>
+            </p1>
 
             <div className="progress-bar">
               <div className="progress"></div>
@@ -78,42 +79,20 @@ async function completeChore(id) {
 
       {/* Task section */}
       <section className="card">
-        {[...dailyChores]
-          .sort((a, b) => a.completed - b.completed)
-          .map((chore) => (
-            <div
-              className={`task ${chore.completed ? "completed" : ""}`}
-              key={chore.id}
-            >
-              <span className="task-label">
-                <span
-                  className="icon-circle"
-                  style={{ backgroundColor: chore.icon_color }}
-                >
-                  <Icon
-                    icon={chore.icon}
-                    width="20"
-                    height="20"
-                    color="white"
-                  />
-                </span>
-                {chore.title}
+        {dailyChores.map((chore) => (
+          <div className="task" key={chore.id}>
+            <span className="task-label">
+              <span className="icon-circle" style={{ backgroundColor: chore.icon_color }}>
+                <Icon icon={chore.icon} width="20" height="20" color="white" />
               </span>
-              <div className="task-right">
-                <button>+{chore.points} pt</button>
+              {chore.title}
+            </span>
+            <button>+{chore.points} pt</button>
+          </div>
+        ))}
 
-                <button
-                  className="check-circle"
-                  onClick={() => completeChore(chore.id)}
-                />
-              </div>
-            </div>
-          ))}
-
-        <button className="admin-btn" onClick={() => navigate("/admin")}>
-          Administrer opgaver
-        </button> 
-      </section> 
+        <button className="admin-btn">Administrer opgaver</button>
+      </section>
 
       {/* Goal section */}
       <section className="card">
@@ -127,7 +106,7 @@ async function completeChore(id) {
           <span className="percent">70%</span>
         </div>
 
-        <p className="reset">Åben reset</p>
+        <button className="reset">Åben reset</button>
       </section>
     </div>
   );

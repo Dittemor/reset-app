@@ -1,18 +1,18 @@
 export default function PostCard({ post }) {
-  const formattedDate = new Date(post.created_at).toLocaleString("da-DK", {
-    dateStyle: "long",
-    timeStyle: "short"
-  });
-
   return (
     <article className="post-card">
-      <img className="post-image" src={post.image} alt="" />
-      <div className="post-card-content">
-        <time className="post-time" dateTime={post.created_at}>
-          {formattedDate}
-        </time>
-        <h2>{post.caption}</h2>
+      <img src={post.image} alt={post.name} />
+
+      <div className="post-info">
+        <h2>{post.title}</h2>
+        <h3>{post.name}</h3>
+        <p>{post.role}</p>
+        <p>{post.points} point</p>
+        <p>{post.icon}</p>
+        <image src={post.icon} />
       </div>
+
+      
     </article>
   );
 }
