@@ -92,6 +92,12 @@ h1 {
   font-weight: bold;
 }
 
+.task-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .admin-btn {
   margin-top: 20px;
   width: 100%;
@@ -133,7 +139,3 @@ h1 {
   align-items: center;
   justify-content: center;
 } 
-
-.page {
-  padding-bottom: 110px;
-}

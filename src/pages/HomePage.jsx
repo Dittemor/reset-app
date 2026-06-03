@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./HomePage.css";
 import { Icon } from "@iconify/react"; 
+import { useNavigate } from "react-router-dom"; 
 
 const URL = import.meta.env.VITE_SUPABASE_URL + "daily-chores";
 const headers = {
@@ -10,6 +11,8 @@ const headers = {
 
 export default function HomePage() {
   const [dailyChores, setDailyChores] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getChores() {
@@ -21,6 +24,28 @@ export default function HomePage() {
 
     getChores();
   }, []);
+
+async function completeChore(id) {
+  const chore = dailyChores.find((c) => c.id === id);
+
+  const newValue = !chore.completed;
+
+  await fetch(`${URL}?id=eq.${id}`, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({
+      completed: newValue,
+    }),
+  });
+
+  setDailyChores((current) =>
+    current.map((chore) =>
+      chore.id === id ? { ...chore, completed: newValue } : chore,
+    ),
+  );
+} 
+
+   console.log(dailyChores); 
 
   return (
     <div className="page">
@@ -57,10 +82,7 @@ export default function HomePage() {
         {dailyChores.map((chore) => (
           <div className="task" key={chore.id}>
             <span className="task-label">
-              <span
-                className="icon-circle"
-                style={{ backgroundColor: chore.icon_color }}
-              >
+              <span className="icon-circle" style={{ backgroundColor: chore.icon_color }}>
                 <Icon icon={chore.icon} width="20" height="20" color="white" />
               </span>
               {chore.title}
@@ -69,7 +91,7 @@ export default function HomePage() {
           </div>
         ))}
 
-        <button className="create-reward-btn">Administrer opgaver</button>
+        <button className="admin-btn">Administrer opgaver</button>
       </section>
 
       {/* Goal section */}
