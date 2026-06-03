@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ChoresPage from "./pages/ChoresPage";
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/rewards" element={<RewardsPage />} />
         <Route path="/reset" element={<ResetPage />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/admin" element={<ChoresPage />} />
       </Routes>
     </>
   );

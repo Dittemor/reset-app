@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./HomePage.css";
 import { Icon } from "@iconify/react"; 
+import { useNavigate } from "react-router-dom"; 
 
 const URL = import.meta.env.VITE_SUPABASE_URL + "daily-chores";
 const headers = {
@@ -10,6 +11,8 @@ const headers = {
 
 export default function HomePage() {
   const [dailyChores, setDailyChores] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getChores() {
@@ -21,6 +24,28 @@ export default function HomePage() {
 
     getChores();
   }, []);
+
+async function completeChore(id) {
+  const chore = dailyChores.find((c) => c.id === id);
+
+  const newValue = !chore.completed;
+
+  await fetch(`${URL}?id=eq.${id}`, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({
+      completed: newValue,
+    }),
+  });
+
+  setDailyChores((current) =>
+    current.map((chore) =>
+      chore.id === id ? { ...chore, completed: newValue } : chore,
+    ),
+  );
+} 
+
+   console.log(dailyChores); 
 
   return (
     <div className="home">
@@ -53,20 +78,42 @@ export default function HomePage() {
 
       {/* Task section */}
       <section className="card">
-        {dailyChores.map((chore) => (
-          <div className="task" key={chore.id}>
-            <span className="task-label">
-              <span className="icon-circle" style={{ backgroundColor: chore.icon_color }}>
-                <Icon icon={chore.icon} width="20" height="20" color="white" />
+        {[...dailyChores]
+          .sort((a, b) => a.completed - b.completed)
+          .map((chore) => (
+            <div
+              className={`task ${chore.completed ? "completed" : ""}`}
+              key={chore.id}
+            >
+              <span className="task-label">
+                <span
+                  className="icon-circle"
+                  style={{ backgroundColor: chore.icon_color }}
+                >
+                  <Icon
+                    icon={chore.icon}
+                    width="20"
+                    height="20"
+                    color="white"
+                  />
+                </span>
+                {chore.title}
               </span>
-              {chore.title}
-            </span>
-            <button>+{chore.points} pt</button>
-          </div>
-        ))}
+              <div className="task-right">
+                <button>+{chore.points} pt</button>
 
-        <button className="admin-btn">Administrer opgaver</button>
-      </section>
+                <button
+                  className="check-circle"
+                  onClick={() => completeChore(chore.id)}
+                />
+              </div>
+            </div>
+          ))}
+
+        <button className="admin-btn" onClick={() => navigate("/admin")}>
+          Administrer opgaver
+        </button> 
+      </section> 
 
       {/* Goal section */}
       <section className="card">
