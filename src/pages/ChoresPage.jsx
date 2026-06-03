@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
-import Lottie from "lottie-react";
-import successAnimation from "../assets/success.json";
+import OverlayPage from "./OverlayPage";
 import "./ChoresPage.css";
 
 const URL = import.meta.env.VITE_SUPABASE_URL + "chores";
@@ -26,12 +25,6 @@ export default function ChoresPage() {
     getPosts();
   }, []);
 
-  <Lottie
-    animationData={successAnimation}
-    loop={false}
-    className="lottie-animation"
-  />;
-  
   return (
     <>
       <header>
@@ -39,7 +32,7 @@ export default function ChoresPage() {
       </header>
 
       <main>
-        <section className="posts-grid" aria-label="Pligter">
+        <section className="posts-grid">
           {posts.map((post) => (
             <PostCard
               key={post.id}
@@ -49,22 +42,11 @@ export default function ChoresPage() {
           ))}
         </section>
       </main>
-      {selectedPost && (
-        <div className="overlay">
-          <div className="overlay-box">
-            <Lottie
-              animationData={successAnimation}
-              loop={false}
-              className="lottie-animation"
-            />
 
-            <h2>Godt klaret!</h2>
-            <p>Du har klaret en opgave</p>
-
-            <button onClick={() => setSelectedPost(null)}>Luk</button>
-          </div>
-        </div>
-      )}
+      <OverlayPage
+        selectedPost={selectedPost}
+        onClose={() => setSelectedPost(null)}
+      />
     </>
   );
 }

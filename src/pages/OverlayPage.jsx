@@ -1,65 +1,26 @@
-import { useEffect, useState } from "react";
-import PostCard from "../components/PostCard";
 import Lottie from "lottie-react";
 import successAnimation from "../assets/success.json";
-import "./ChoresPage.css";
+import "./OverlayPage.css";
 
-const URL = import.meta.env.VITE_SUPABASE_URL + "chores";
-
-const headers = {
-  apikey: import.meta.env.VITE_SUPABASE_APIKEY,
-  "Content-Type": "application/json",
-};
-
-export default function ChoresPage() {
-  const [posts, setPosts] = useState([]);
-  const [selectedPost, setSelectedPost] = useState(null);
-
-  useEffect(() => {
-    async function getPosts() {
-      const response = await fetch(URL, { headers });
-      const data = await response.json();
-      console.log(data);
-      setPosts(data);
-    }
-
-    getPosts();
-  }, []);
+export default function OverlayPage({ selectedPost, onClose }) {
+  if (!selectedPost) {
+    return null;
+  }
 
   return (
-    <>
-      <header>
-        <h1>Hvad har du lavet?</h1>
-      </header>
+    <div className="overlay">
+      <div className="overlay-box">
+        <Lottie
+          animationData={successAnimation}
+          loop={false}
+          className="lottie-animation"
+        />
 
-      <main>
-        <section className="posts-grid">
-          {posts.map((post) => (
-            <PostCard
-              key={post.id}
-              post={post}
-              onClick={() => setSelectedPost(post)}
-            />
-          ))}
-        </section>
-      </main>
+        <h2>Godt klaret!</h2>
+        <p>Du har klaret en opgave</p>
 
-      {selectedPost && (
-        <div className="overlay">
-          <div className="overlay-box">
-            <Lottie
-              animationData={successAnimation}
-              loop={false}
-              className="lottie-animation"
-            />
-
-            <h2>Godt klaret!</h2>
-            <p>Du har klaret en opgave</p>
-
-            <button onClick={() => setSelectedPost(null)}>Luk</button>
-          </div>
-        </div>
-      )}
-    </>
+        <button onClick={onClose}>Luk</button>
+      </div>
+    </div>
   );
 }
