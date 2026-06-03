@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import "./ResetPage.css"; 
+import { useNavigate } from "react-router-dom";
+ 
 
 const URL = import.meta.env.VITE_SUPABASE_URL + "reset";
 
@@ -10,6 +12,7 @@ const headers = {
 };
 
 export default function ResetPage() {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
 
   const [selectedDate, setSelectedDate] = useState(null);
@@ -112,8 +115,12 @@ export default function ResetPage() {
             </button>
           ))}
         </div>
+      </section>
 
-        {/* DATO KNAP */}
+      {/* DATO KNAP */}
+      <section>
+        <h2>Hvornår skal det gøres?</h2>
+
         <div className="date-wrapper">
           <button
             className="date-chip"
@@ -135,9 +142,10 @@ export default function ResetPage() {
               />
             </div>
           )}
-
-      
         </div>
+        <button className="admin-btn" onClick={() => navigate("/error")}>
+          Opret reset
+        </button> 
       </section>
     </main>
   );

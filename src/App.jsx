@@ -19,6 +19,7 @@ export default function App() {
         <Route path="/reset" element={<ResetPage />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/admin" element={<ChoresPage />} />
+        <Route path="/error" element={<NotFoundPage />} />
       </Routes>
     </>
   );
