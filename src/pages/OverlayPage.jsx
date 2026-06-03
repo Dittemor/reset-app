@@ -26,12 +26,6 @@ export default function ChoresPage() {
     getPosts();
   }, []);
 
-  <Lottie
-    animationData={successAnimation}
-    loop={false}
-    className="lottie-animation"
-  />;
-  
   return (
     <>
       <header>
@@ -39,7 +33,7 @@ export default function ChoresPage() {
       </header>
 
       <main>
-        <section className="posts-grid" aria-label="Pligter">
+        <section className="posts-grid">
           {posts.map((post) => (
             <PostCard
               key={post.id}
@@ -49,6 +43,7 @@ export default function ChoresPage() {
           ))}
         </section>
       </main>
+
       {selectedPost && (
         <div className="overlay">
           <div className="overlay-box">

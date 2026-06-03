@@ -1,26 +1,4 @@
-.search-bar {
-  width: 90%;
-  padding: 14px 18px;
-  margin: 20px 0;
-
-  border: 1px solid #ddd6cf;
-  border-radius: 999px;
-  background-color: #fffdfb;
-
-  font-size: 15px;
-  color: #111;
-  outline: none;
-}
-
-.search-bar::placeholder {
-  color: #999;
-}
-
-.search-bar:focus {
-  border-color: #4f6f94;
-}
-
-.overlay {
+.lottie-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -36,12 +14,14 @@
   z-index: 9999;
 }
 
-.overlay-box {
+.lottie-box {
   width: 320px;
   background-color: #faf8f5;
   border-radius: 24px;
   padding: 28px 24px;
   text-align: center;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .lottie-animation {
@@ -49,11 +29,24 @@
   margin: 0 auto;
 }
 
-.overlay-box button {
+.lottie-box h2 {
+  margin: 10px 0 8px;
+  font-size: 26px;
+  color: #4f6f94;
+}
+
+.lottie-box p {
+  margin: 0 0 22px;
+  font-size: 16px;
+  color: #333;
+}
+
+.lottie-box button {
   border: none;
   border-radius: 999px;
   padding: 12px 32px;
   background-color: #4f6f94;
   color: white;
   font-size: 16px;
+  cursor: pointer;
 }
