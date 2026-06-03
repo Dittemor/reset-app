@@ -7,10 +7,12 @@
 .reset-page h1 {
   text-align: center;
   margin-bottom: 32px;
+  font-size: 25px; 
 }
 
 .reset-page h2 {
   margin-bottom: 16px;
+  font-size: 20px; 
 }
 
 .reason-grid {
@@ -104,4 +106,8 @@
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   z-index: 10;
+} 
+
+.date-chip {
+  width: 350%;
 } 
