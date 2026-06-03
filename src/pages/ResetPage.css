@@ -1,5 +1,7 @@
 .reset-page {
   padding: 20px;
+  padding-bottom: 150px;
+
 }
 
 .reset-page h1 {
@@ -13,10 +15,10 @@
 
 .reason-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  margin-bottom: 32px;
-}
+  width: 100%;
+} 
 
 .reason-card {
   display: flex;
@@ -28,6 +30,9 @@
   border-radius: 16px;
   background: #f3efe9;
   cursor: pointer;
+  min-height: 110px; 
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .reason-card span {
@@ -54,3 +59,49 @@
   background: #f3efe9;
   cursor: pointer;
 }
+
+.reason-card.selected {
+  background: #476489;
+  color: white;
+  transform: scale(0.97);
+  transition: 0.2s;
+}
+
+.chip.selected {
+  background: #476489;
+  color: white !important;
+  transform: scale(0.95);
+  transition: 0.2s;
+}  
+
+.reason-card.selected svg {
+  color: white;
+} 
+
+.date-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.date-chip {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 16px;
+  background: #f3efe9;
+  cursor: pointer;
+  width: 200px;
+  text-align: center;
+}
+
+.calendar-popup {
+  position: absolute;
+  top: 110%;
+  left: 0;
+
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  z-index: 10;
+} 

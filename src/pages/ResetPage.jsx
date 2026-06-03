@@ -12,6 +12,21 @@ const headers = {
 export default function ResetPage() {
   const [items, setItems] = useState([]);
 
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [openCalendar, setOpenCalendar] = useState(false);
+
+  const [selectedReasons, setSelectedReasons] = useState([]);
+  const [selectedLevels, setSelectedLevels] = useState([]);
+  const [selectedFocuses, setSelectedFocuses] = useState([]);
+
+   function toggle(id, selected, setSelected) {
+     if (selected.includes(id)) {
+       setSelected(selected.filter((x) => x !== id));
+     } else {
+       setSelected([...selected, id]);
+     }
+   }  
+
   useEffect(() => {
     async function getData() {
       try {
@@ -43,7 +58,15 @@ export default function ResetPage() {
 
         <div className="reason-grid">
           {reasons.map((item) => (
-            <button key={item.id} className="reason-card">
+            <button
+              key={item.id}
+              className={`reason-card ${
+                selectedReasons.includes(item.id) ? "selected" : ""
+              }`}
+              onClick={() =>
+                toggle(item.id, selectedReasons, setSelectedReasons)
+              }
+            >
               <Icon icon={item.icon} width="40" />
               <span>{item.title}</span>
             </button>
@@ -57,7 +80,13 @@ export default function ResetPage() {
 
         <div className="chip-container">
           {levels.map((item) => (
-            <button key={item.id} className="chip">
+            <button
+              key={item.id}
+              className={`chip ${
+                selectedLevels.includes(item.id) ? "selected" : ""
+              }`}
+              onClick={() => toggle(item.id, selectedLevels, setSelectedLevels)}
+            >
               {item.title}
             </button>
           ))}
@@ -70,10 +99,44 @@ export default function ResetPage() {
 
         <div className="chip-grid">
           {focuses.map((item) => (
-            <button key={item.id} className="chip">
+            <button
+              key={item.id}
+              className={`chip ${
+                selectedFocuses.includes(item.id) ? "selected" : ""
+              }`}
+              onClick={() =>
+                toggle(item.id, selectedFocuses, setSelectedFocuses)
+              }
+            >
               {item.title}
             </button>
           ))}
+        </div>
+
+        {/* DATO KNAP */}
+        <div className="date-wrapper">
+          <button
+            className="date-chip"
+            onClick={() => setOpenCalendar(!openCalendar)}
+          >
+            {selectedDate
+              ? new Date(selectedDate).toLocaleDateString("da-DK")
+              : "Vælg dato"}
+          </button>
+
+          {openCalendar && (
+            <div className="calendar-popup">
+              <input
+                type="date"
+                onChange={(e) => {
+                  setSelectedDate(e.target.value);
+                  setOpenCalendar(false);
+                }}
+              />
+            </div>
+          )}
+
+      
         </div>
       </section>
     </main>
