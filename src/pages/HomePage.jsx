@@ -49,7 +49,6 @@ async function completeChore(id) {
 
   return (
     <div className="page">
-
       {/* Top card */}
       <section className="card hero-card">
         <div className="hero-content">
@@ -79,19 +78,45 @@ async function completeChore(id) {
 
       {/* Task section */}
       <section className="card">
-        {dailyChores.map((chore) => (
-          <div className="task" key={chore.id}>
-            <span className="task-label">
-              <span className="icon-circle" style={{ backgroundColor: chore.icon_color }}>
-                <Icon icon={chore.icon} width="20" height="20" color="white" />
-              </span>
-              {chore.title}
-            </span>
-            <button>+{chore.points} pt</button>
-          </div>
-        ))}
+        {dailyChores
+          .sort((a, b) => a.completed - b.completed)
+          .map((chore) => (
+            <div
+              className={`task ${chore.completed ? "completed" : ""}`}
+              key={chore.id}
+            >
+              {/* VENSTRE SIDE */}
+              <span className="task-label">
+                <span
+                  className="icon-circle"
+                  style={{ backgroundColor: chore.icon_color }}
+                >
+                  <Icon
+                    icon={chore.icon}
+                    width="20"
+                    height="20"
+                    color="white"
+                  />
+                </span>
 
-        <button className="admin-btn">Administrer opgaver</button>
+                {chore.title}
+              </span>
+
+              {/* HØJRE SIDE */}
+              <div className="task-right">
+                <button className="points-btn">+{chore.points} pt</button>
+
+                <button
+                  className={`check-circle ${chore.completed ? "done" : ""}`}
+                  onClick={() => completeChore(chore.id)}
+                />
+              </div>
+            </div>
+          ))} 
+
+        <button className="admin-btn" onClick={() => navigate("/admin")}>
+          Administrer opgaver
+        </button>
       </section>
 
       {/* Goal section */}

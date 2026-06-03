@@ -139,3 +139,34 @@ h1 {
   align-items: center;
   justify-content: center;
 } 
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+
+.check-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #bbb;
+  background: white;
+  cursor: pointer;
+}
+
+.check-circle.done {
+  background: green;
+  border-color: green;
+}
+
+.completed { 
+  opacity: 0.5;
+} 
