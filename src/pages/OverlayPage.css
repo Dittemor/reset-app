@@ -4,6 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+
   background-color: rgba(0, 0, 0, 0.35);
 
   display: flex;
@@ -19,24 +20,17 @@
   border-radius: 24px;
   padding: 28px 24px;
   text-align: center;
-
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .lottie-animation {
   width: 180px;
-  margin: 0 auto;
+  height: 180px;
+  margin: 0 auto 12px;
 }
 
 .overlay-box h2 {
-  margin: 12px 0 8px;
-  font-size: 26px;
+  margin: 8px 0;
   color: #4f6f94;
-}
-
-.overlay-box p {
-  margin-bottom: 22px;
-  font-size: 16px;
 }
 
 .overlay-box button {
@@ -45,6 +39,4 @@
   padding: 12px 32px;
   background-color: #4f6f94;
   color: white;
-  font-size: 16px;
-  cursor: pointer;
 }

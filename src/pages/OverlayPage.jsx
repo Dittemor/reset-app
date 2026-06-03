@@ -1,4 +1,4 @@
-import Lottie from "lottie-react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import successAnimation from "../assets/success.json";
 import "./OverlayPage.css";
 
@@ -10,9 +10,10 @@ export default function OverlayPage({ selectedPost, onClose }) {
   return (
     <div className="overlay">
       <div className="overlay-box">
-        <Lottie
-          animationData={successAnimation}
-          loop={false}
+        <Player
+          autoplay
+          loop
+          src={successAnimation}
           className="lottie-animation"
         />
 

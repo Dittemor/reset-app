@@ -58,9 +58,10 @@ async function completeChore(id) {
             <h1>I gør det godt!</h1>
 
             <p>9 opgaver klaret denne uge</p>
-            <p1>
+            
+            <p className>
               <strong>3 opgaver mangler i dag</strong>
-            </p1>
+            </p>
 
             <div className="progress-bar">
               <div className="progress"></div>
