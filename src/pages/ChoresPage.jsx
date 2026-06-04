@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
 import OverlayPage from "./OverlayPage";
 import "./ChoresPage.css";
+import { Icon } from "@iconify/react"; 
 
 const URL = import.meta.env.VITE_SUPABASE_URL + "chores";
 

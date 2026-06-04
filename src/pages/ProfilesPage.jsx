@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
+import "./ProfilesPage.css"; 
 
 const URL = import.meta.env.VITE_SUPABASE_URL + "profiles";
 const headers = {

@@ -1,0 +1,9 @@
+.post-icon:empty {
+  display: none;
+}  
+
+.post-points {
+  width: 50px;
+  font-weight: bold;
+  color: #000000; 
+} 
