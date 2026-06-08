@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import "./HomePage.css";
-import { Icon } from "@iconify/react"; 
-import { useNavigate } from "react-router-dom"; 
-
+import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 
 const URL = import.meta.env.VITE_SUPABASE_URL + "daily-chores";
 const headers = {
   apikey: import.meta.env.VITE_SUPABASE_APIKEY,
-  "Content-Type": "application/json",
+  "Content-Type": "application/json"
 };
 
 export default function HomePage() {
@@ -26,34 +25,30 @@ export default function HomePage() {
     getChores();
   }, []);
 
-async function completeChore(id) {
-  const chore = dailyChores.find((c) => c.id === id);
+  async function completeChore(id) {
+    const chore = dailyChores.find((c) => c.id === id);
 
-  const newValue = !chore.completed;
+    const newValue = !chore.completed;
 
-  await fetch(`${URL}?id=eq.${id}`, {
-    method: "PATCH",
-    headers,
-    body: JSON.stringify({
-      completed: newValue,
-    }),
-  });
+    await fetch(`${URL}?id=eq.${id}`, {
+      method: "PATCH",
+      headers,
+      body: JSON.stringify({
+        completed: newValue
+      })
+    });
 
-  setDailyChores((current) =>
-    current.map((chore) =>
-      chore.id === id ? { ...chore, completed: newValue } : chore,
-    ),
-  );
-} 
+    setDailyChores((current) => current.map((chore) => (chore.id === id ? { ...chore, completed: newValue } : chore)));
+  }
 
-   console.log(dailyChores); 
+  console.log(dailyChores);
 
   return (
     <div className="page">
       {/* Top card */}
       <section className="card hero-card">
         <div className="hero-content">
-          <img src="images/hus.png" alt="House" className="house-image" />
+          <img src={`${import.meta.env.BASE_URL}images/hus.png`} alt="House" className="house-image" />
 
           <div>
             <h1>I gør det godt!</h1>
@@ -83,22 +78,11 @@ async function completeChore(id) {
         {dailyChores
           .sort((a, b) => a.completed - b.completed)
           .map((chore) => (
-            <div
-              className={`task ${chore.completed ? "completed" : ""}`}
-              key={chore.id}
-            >
+            <div className={`task ${chore.completed ? "completed" : ""}`} key={chore.id}>
               {/* VENSTRE SIDE */}
               <span className="task-label">
-                <span
-                  className="icon-circle"
-                  style={{ backgroundColor: chore.icon_color }}
-                >
-                  <Icon
-                    icon={chore.icon}
-                    width="20"
-                    height="20"
-                    color="white"
-                  />
+                <span className="icon-circle" style={{ backgroundColor: chore.icon_color }}>
+                  <Icon icon={chore.icon} width="20" height="20" color="white" />
                 </span>
 
                 {chore.title}

@@ -1,26 +1,28 @@
 import { NavLink } from "react-router";
 import "./Navbar.css";
 export default function Navbar() {
+  const base = import.meta.env.BASE_URL;
+
   return (
     <nav>
       <NavLink to="/">
-        <img src="/images/house.svg"/>
+        <img src={`${base}images/house.svg`} />
       </NavLink>
 
       <NavLink to="/reset">
-        <img src="/images/check.svg"/>
+        <img src={`${base}images/check.svg`} />
       </NavLink>
 
       <NavLink to="/chores">
-        <img src="/images/plus.svg"/>
+        <img src={`${base}images/plus.svg`} />
       </NavLink>
 
       <NavLink to="/rewards">
-        <img src="/images/gift.svg"/>
+        <img src={`${base}images/gift.svg`} />
       </NavLink>
 
       <NavLink to="/profiles">
-        <img src="/images/person.svg"/>
+        <img src={`${base}images/person.svg`} />
       </NavLink>
     </nav>
   );
